@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import Navbar from './components/Navbar'
 import CryptoGraph from './components/CryptoGraph'
 import Sidebar from './components/Sidebar'
+import Footer from './components/Footer'
 
 function App() {
   const [coinData, setCoinData] = React.useState([])
@@ -20,9 +21,10 @@ function App() {
       <div className="main-flex">
         <Sidebar coins={coinData} />
         <div className="chart-container">
-          <CryptoGraph id='chart' />
+          <CryptoGraph id='chart' coins={coinData} />
         </div>
       </div>
+      <Footer />
     </div>
   )
 }

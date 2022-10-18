@@ -46,23 +46,31 @@ body {
 /* main flex container */
 .main-flex {
   display: flex;
-  height: 75vh;
+  height: 77.5vh;
 }
 
 /* Graph */
 .chart-container{
   position: relative;
+  display: flex;
+  align-items: center;
   margin: auto;
   height: 40vh;
-  width: 50vw;
+  width: 60vw;
+}
+
+.graph-title {
+  text-align: center;
+  font-weight: 300;
 }
 
 /* Sidebar */
 .sidebar {
   width: 30%;
   height: 100%;
+  margin-left: 10px;
   padding: 20px;
-  border: #000 1px solid;
+
   overflow-y: scroll;
 }
 
@@ -74,14 +82,6 @@ body {
   background-color: transparent;
 }
 
-::-webkit-scrollbar-thumb {
-  background-color: #d6dee1;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #d6dee1;
-  border-radius: 20px;
-}
 
 .searchbar {
   /* position: fixed; */
@@ -129,3 +129,11 @@ body {
   font-size: x-large;
 }
 
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  height: 50%;
+}

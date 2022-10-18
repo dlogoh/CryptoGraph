@@ -3,7 +3,6 @@ import CoinCard from './CoinCard'
 
 function Sidebar({ coins }) {
   const coinNames = coins.slice(0, 20).map((coin) => {
-    
     return (
       <CoinCard 
         key={coin.name}
