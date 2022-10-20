@@ -45,10 +45,8 @@ function CryptoGraph({ coins }) {
   };
 
   const thirtyDaysAgo = new Date(new Date().setDate(new Date().getDate() - 30));
-  const pastMonth = 
-    thirtyDaysAgo.getMonth() > 1 ? thirtyDaysAgo.getMonth() + 1 :
-    thirtyDaysAgo.getMonth() === 0 ? thirtyDaysAgo.getMonth() + 12 : thirtyDaysAgo.getMonth()
   const pastDay = thirtyDaysAgo.getDate()
+  const pastMonth = thirtyDaysAgo.getMonth() + 1
   const pastYear = thirtyDaysAgo.getFullYear()
 
   const currentDate = new Date()
@@ -56,7 +54,7 @@ function CryptoGraph({ coins }) {
   const day = currentDate.getDate()
   const year = currentDate.getFullYear()
   const labels = []
-
+    console.log(thirtyDaysAgo);
     console.log(pastMonth);
 
   const data = {
