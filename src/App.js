@@ -6,12 +6,22 @@ import Footer from './components/Footer'
 
 function App() {
   const [coinData, setCoinData] = React.useState([])
+  const [selectedCoin, setSelectedCoin] = React.useState('Bitcoin')
+  const [pastValue, setPastValue] = React.useState([])
+
   useEffect(() => {
     fetch('https://api.coingecko.com/api/v3/coins')
       .then(res => res.json())
       .then(data => setCoinData(data))
-    console.log(coinData)
   }, [])
+
+  useEffect(() => {
+    fetch(`https://api.coingecko.com/api/v3/coins/${selectedCoin.toLowerCase()}/market_chart?vs_currency=usd&days=10&interval=daily`)
+      .then(res => res.json())
+      .then(data => setPastValue(data))
+  }, [selectedCoin])
+
+  console.log(pastValue)
 
 
 
@@ -19,9 +29,9 @@ function App() {
     <div>
       <Navbar />
       <div className="main-flex">
-        <Sidebar coins={coinData} />
+        <Sidebar coins={coinData} setSelectedCoin={setSelectedCoin} />
         <div className="chart-container">
-          <CryptoGraph id='chart' coins={coinData} />
+          <CryptoGraph id='chart' coins={coinData} pastValue={pastValue} selectedCoin={selectedCoin} />
         </div>
       </div>
       <Footer />

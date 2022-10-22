@@ -74,6 +74,26 @@ body {
   overflow-y: scroll;
 }
 
+.coin-buttons {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border-bottom: #6495ED 1px solid;
+}
+
+.coin-buttons input {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  height: 50px;
+  position: relative;
+  padding: 15px;
+  font-size: x-large;
+}
+
 ::-webkit-scrollbar {
   width: 20px;
 }
