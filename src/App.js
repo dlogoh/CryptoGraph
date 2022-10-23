@@ -21,10 +21,6 @@ function App() {
       .then(data => setPastValue(data))
   }, [selectedCoin])
 
-  console.log(pastValue)
-
-
-
   return (
     <div>
       <Navbar />
