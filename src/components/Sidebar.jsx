@@ -10,7 +10,6 @@ function Sidebar({ coins, setSelectedCoin }) {
 
   return (
     <div className="sidebar">
-      <div className="searchbar">Search here</div>
       <div className="coins">
         <ul>{coinNames}</ul>
       </div>

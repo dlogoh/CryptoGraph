@@ -27,7 +27,6 @@ function CryptoGraph({ coins, pastValue, selectedCoin }) {
   const options = {
     responsive: true,
     maintainAspectRation: false,
-    backgroundColor: "rgba(0,0,0,0.4)",
     plugins: {
       legend: {
         position: "top",
