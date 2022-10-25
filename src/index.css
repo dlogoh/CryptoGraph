@@ -45,6 +45,16 @@ body {
   width: 150px;
 }
 
+.powered-by {
+  display: flex;
+  align-items: center;
+  color: #fff;
+}
+
+.powered-by img {
+  padding-left: 10px;
+}
+
 /* main flex container */
 .main-flex {
   display: flex;
