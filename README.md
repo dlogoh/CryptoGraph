@@ -7,3 +7,4 @@ Then displays the value for the last 10 days of the selected crypto-currency in 
 Chartjs used for the graph.
 
 Still working on making the app responsive. 
+*** Does Not Work Well On Mobile Yet ***
