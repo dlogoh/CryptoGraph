@@ -1,5 +1,3 @@
-import React from "react";
-
 function DateFunction() {
   let tenDaysAgo;
   let pastDay;

@@ -7,13 +7,13 @@ function CoinCard({ coin, setSelectedCoin }) {
 
   return (
     <li>
-      <div className="coin-buttons">
-        <img src={`${coin.image.thumb}`} />
+      <div className='coin-buttons'>
+        <img src={`${coin.image.thumb}`} alt='Coin logo' />
         <input
-          type="button"
+          type='button'
           id={coin.name}
           value={coin.id}
-          name="coin"
+          name='coin'
           onClick={handleClick}
         />
       </div>
