@@ -1,0 +1,38 @@
+@import url("../index.css");
+
+.sidebar {
+  font-family: var(--ff-primary);
+  color: #fff;
+  background-color: var(--clr-dark);
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin-top: 85px;
+  padding-top: 2rem;
+  width: 300px;
+  height: 100%;
+}
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+}
+
+.sidebar-item {
+  display: flex;
+  font-weight: 600;
+}
+
+.sidebar-item img {
+  padding-right: 1rem;
+}
+
+ul {
+  list-style: none;
+  font-size: 1.4rem;
+}
+
+ul li {
+  padding: 1rem 0;
+}

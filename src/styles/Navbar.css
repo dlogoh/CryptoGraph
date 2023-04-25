@@ -1,7 +1,7 @@
 @import url("../index.css");
 
 nav {
-  font-family: var(--ff-primary);
+  font-family: var(--ff-secondary);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -14,20 +14,23 @@ nav {
 }
 
 nav img {
-  width: 73px;
-  height: 73px;
+  width: 35px;
+  height: 35px;
   z-index: 10;
 }
 
 nav h2 {
   color: #fff;
-  padding-left: 1rem;
+  font-family: var(--ff-secondary);
+  letter-spacing: 1.3px;
+  padding-left: 0.8rem;
 }
 
 .nav-container {
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-left: 1.6rem;
 }
 
 .nav-links {

@@ -30,7 +30,7 @@ const Navbar = () => {
       </div>
       <ul className='nav-links'>
         <li>
-          <a href='/'>Home</a>
+          <a href='/'>Maybe put icons here</a>
         </li>
       </ul>
       <ul id='menu' className={`menu ${navToggle}`}>

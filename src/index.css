@@ -1,8 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Goldman&display=swap");
 
 /* Vars */
 :root {
   --ff-primary: "Lato", sans-serif;
+  --ff-secondary: "Goldman", sans-serif;
   --clr-dark: #03030a;
 }
 
@@ -49,6 +51,7 @@ body {
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  background-color: #101012;
 }
 
 /* A elements that do not have a class */
