@@ -58,6 +58,22 @@ function LineGraph() {
               y: {
                 min: minPrice,
                 max: maxPrice,
+                title: {
+                  display: true,
+                  text: "Price (USD)",
+                },
+              },
+              x: {
+                title: {
+                  display: true,
+                  text: "Time",
+                },
+              },
+            },
+            plugins: {
+              legend: {
+                display: true,
+                position: "top",
               },
             },
           };
@@ -79,7 +95,7 @@ function LineGraph() {
       }, 500);
     }
     fetchData();
-  }, []);
+  }, [coin]);
 
   return (
     <div>

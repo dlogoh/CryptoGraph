@@ -37,7 +37,9 @@ const CoinGraph = () => {
             <h3>{`${day}, ${date.getDate()} ${month}`}</h3>
             <h2 className='graph-title'>{capitalizeFirstLetter(coin)}</h2>
           </div>
+          <div className='yLabel'>Price in USD</div>
           <LineGraph />
+          <div className='xLabel'>Time</div>
         </div>
       </section>
     </>
