@@ -1,17 +1,26 @@
 import { useState, useEffect, useRef } from "react";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
+import { useSelector } from "react-redux";
 
 function LineGraph() {
   const [data, setData] = useState(null);
   const chartRef = useRef(null);
 
+  const capitalizeFirstLetter = (string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
+
+  // Redux
+  const coin = useSelector((state) => state.coin.coin);
+
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        "https://api.coincap.io/v2/assets/bitcoin/history?interval=m5"
+        `https://api.coincap.io/v2/assets/${coin}/history?interval=m5`
       );
       const json = await response.json();
+
       // Give the API some time to respond and check if data is there
       setTimeout(() => {
         if (json.data && json.data.length > 0) {
@@ -33,7 +42,7 @@ function LineGraph() {
             labels: chartLabels,
             datasets: [
               {
-                label: "Bitcoin Price",
+                label: `${capitalizeFirstLetter(coin)} Price`,
                 data: last20Data.map((d) => d.priceUsd),
                 fill: false,
                 borderColor: "rgb(75, 192, 192)",
@@ -41,6 +50,18 @@ function LineGraph() {
               },
             ],
           };
+
+          const chartOptions = {
+            maintainAspectRatio: false,
+            responsive: true,
+            scales: {
+              y: {
+                min: minPrice,
+                max: maxPrice,
+              },
+            },
+          };
+
           setData(chartData);
           // Destroy the old chart if it exists
           if (chartRef.current) {
@@ -51,12 +72,7 @@ function LineGraph() {
             type: "line",
             data: chartData,
             options: {
-              scales: {
-                y: {
-                  min: minPrice,
-                  max: maxPrice,
-                },
-              },
+              chartOptions,
             },
           });
         }
@@ -67,6 +83,7 @@ function LineGraph() {
 
   return (
     <div>
+      {/* Add height later for responsiveness */}
       <canvas id='myChart'></canvas>
     </div>
   );
