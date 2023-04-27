@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  coin: "bitcoin",
+  coin: "ethereum",
 };
 
 export const coinSlice = createSlice({
