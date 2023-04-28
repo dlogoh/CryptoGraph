@@ -11,6 +11,7 @@ nav {
   height: 85px;
   overflow: hidden;
   background: var(--clr-dark);
+  z-index: 10;
 }
 
 nav img {

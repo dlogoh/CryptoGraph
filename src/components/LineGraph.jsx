@@ -1,10 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { useSelector } from "react-redux";
 
 function LineGraph() {
-  const [data, setData] = useState(null);
   const chartRef = useRef(null);
 
   const capitalizeFirstLetter = (string) => {
@@ -78,7 +77,6 @@ function LineGraph() {
             },
           };
 
-          setData(chartData);
           // Destroy the old chart if it exists
           if (chartRef.current) {
             chartRef.current.destroy();
@@ -92,7 +90,7 @@ function LineGraph() {
             },
           });
         }
-      }, 500);
+      }, 300);
     }
     fetchData();
   }, [coin]);
