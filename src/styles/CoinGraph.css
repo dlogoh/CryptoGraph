@@ -10,6 +10,20 @@
   position: relative;
 }
 
+.graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.graph-header-right select {
+  background-color: inherit;
+  color: #eee;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 5px;
+}
+
 .graph-header h3 {
   font-size: 1rem;
   letter-spacing: 1.4px;

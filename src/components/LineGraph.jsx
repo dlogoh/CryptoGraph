@@ -12,11 +12,12 @@ function LineGraph() {
 
   // Redux
   const coin = useSelector((state) => state.coin.coin);
+  const interval = useSelector((state) => state.chartInterval.chartInterval);
 
   useEffect(() => {
     async function fetchData() {
       const response = await fetch(
-        `https://api.coincap.io/v2/assets/${coin}/history?interval=m5`
+        `https://api.coincap.io/v2/assets/${coin}/history?interval=${interval}`
       );
       const json = await response.json();
 
@@ -28,6 +29,10 @@ function LineGraph() {
           const maxPrice = Math.max(...last20Data.map((d) => d.priceUsd));
 
           const chartLabels = last20Data.map((d) => {
+            if (interval === "d1") {
+              return d.date.slice(0, 10);
+            }
+
             const unixTimestampMs = parseInt(d.time);
             const dateObject = new Date(unixTimestampMs);
             const humanReadableTime = dateObject.toLocaleTimeString([], {
@@ -69,12 +74,7 @@ function LineGraph() {
                 },
               },
             },
-            plugins: {
-              legend: {
-                display: true,
-                position: "top",
-              },
-            },
+            plugins: {},
           };
 
           // Destroy the old chart if it exists
@@ -93,7 +93,7 @@ function LineGraph() {
       }, 300);
     }
     fetchData();
-  }, [coin]);
+  }, [coin, interval]);
 
   return (
     <div>
