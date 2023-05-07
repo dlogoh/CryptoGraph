@@ -1,4 +1,5 @@
-.coin-graph {
+.coin-graph,
+.coin-stats {
   padding-top: 85px;
   padding-left: 300px;
   height: 100%;
@@ -17,7 +18,7 @@
 }
 
 .graph-header-right select {
-  background-color: inherit;
+  background-color: #333;
   color: #eee;
   border: 1px solid #eee;
   border-radius: 5px;
@@ -51,4 +52,81 @@
   color: #f9f6ee;
   font-weight: 500;
   letter-spacing: 1.2px;
+}
+
+/* Stats */
+
+.stats-list {
+  max-width: 100%;
+}
+
+.stats-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 2rem;
+}
+
+.stats-rank {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding-left: 2rem;
+  max-width: 7rem;
+}
+
+.stats-info {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  margin-right: 2rem;
+}
+
+.stats-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5rem;
+  text-align: right;
+  margin: 2rem;
+  border: #eee 1px solid;
+  border-radius: 10px;
+  height: 3.5rem;
+  max-width: 100%;
+}
+
+.stats-rank-asset {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  text-align: left;
+  padding-left: 1rem;
+}
+
+.stats-rank-asset > h4 {
+  max-width: 10px;
+}
+
+.stats-rank-asset > h3 {
+  inline-size: 150px;
+}
+
+.stats-info-asset {
+  display: flex;
+  justify-content: flex-start;
+  gap: 2rem;
+  padding-right: 3rem;
+}
+
+.stats-info-asset > h3 {
+  width: 5rem;
+}
+
+.down-icon,
+.up-icon {
+  width: 40px;
+}
+
+.up-icon {
+  transform: rotate(180deg);
 }

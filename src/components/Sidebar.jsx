@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { setCoin } from "../features/coinSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setCoin, setAssets } from "../features/coinSlice";
+import { setOpen, setStats } from "../features/SidebarSlice";
 import coinIcon from "../img/coin-icon.svg";
 import statsIcon from "../img/stats-icon.svg";
 import favoriteIcon from "../img/favorite-icon.svg";
@@ -8,7 +9,6 @@ import backIcon from "../img/back-icon.svg";
 import "../styles/Sidebar.css";
 
 const Sidebar = () => {
-  const [open, setOpen] = useState(false);
   const [asset, setAsset] = useState([]);
   const [query, setQuery] = useState("");
   const [filteredData, setFilteredData] = useState();
@@ -17,19 +17,24 @@ const Sidebar = () => {
     const response = await fetch("https://api.coincap.io/v2/assets");
     const json = await response.json();
     setAsset(json);
+    dispatch(setAssets(json));
   };
 
   useEffect(() => {
     fetchAsset();
   }, []);
 
-  // console.log(asset);
-
   // Redux
+  const open = useSelector((state) => state.sidebar.open);
+
   const dispatch = useDispatch();
 
-  const toggleSidebar = () => {
-    setOpen(!open);
+  const toggleSidebar = (toggle) => {
+    dispatch(setOpen(toggle));
+  };
+
+  const toggleStats = (toggle) => {
+    dispatch(setStats(toggle));
   };
 
   const handleCoin = (coin) => {
@@ -46,11 +51,10 @@ const Sidebar = () => {
     setFilteredData(filtered);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Submitting search query:", query);
+  const handleSubmit = (e) => {
+    // useless for now
+    e.preventDefault();
     console.log(filteredData);
-    // Send search query to the server using fetch or another library
   };
 
   return (
@@ -59,11 +63,17 @@ const Sidebar = () => {
         <div className='sidebar-container'>
           {!open ? (
             <ul>
-              <li className='sidebar-item' onClick={toggleSidebar}>
+              <li
+                className='sidebar-item'
+                onClick={() => {
+                  toggleSidebar(true);
+                  toggleStats(false);
+                }}
+              >
                 <img src={coinIcon} alt='Coin Icon' />
                 Coins
               </li>
-              <li className='sidebar-item'>
+              <li className='sidebar-item' onClick={() => toggleStats(true)}>
                 <img src={statsIcon} alt='Stats Icon' />
                 Stats
               </li>
@@ -74,7 +84,11 @@ const Sidebar = () => {
             </ul>
           ) : (
             <div className='coin-menu'>
-              <img src={backIcon} alt='Go Back' onClick={toggleSidebar} />
+              <img
+                src={backIcon}
+                alt='Go Back'
+                onClick={() => toggleSidebar(false)}
+              />
               <form onSubmit={handleSubmit}>
                 <input
                   type='text'
@@ -91,7 +105,7 @@ const Sidebar = () => {
                       className='sidebar-item'
                       value={item.id}
                       key={item.id}
-                      onClick={(e) => handleCoin(item.id)}
+                      onClick={() => handleCoin(item.id)}
                     >
                       {item.name}
                     </li>
@@ -104,7 +118,7 @@ const Sidebar = () => {
                       className='sidebar-item'
                       value={item.id}
                       key={item.id}
-                      onClick={(e) => handleCoin(item.id)}
+                      onClick={() => handleCoin(item.id)}
                     >
                       {item.name}
                     </li>
