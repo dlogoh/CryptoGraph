@@ -25,6 +25,7 @@
   margin-right: 3rem;
   /* margin-top: 1rem; */
   padding-left: 1rem;
+  max-width: 100%;
 }
 
 .sidebar-item img {
@@ -35,6 +36,11 @@
   border: #fff 2px solid;
   border-radius: 10px;
   cursor: pointer;
+}
+
+.sidebar-item-fav {
+  display: flex;
+  justify-content: space-between;
 }
 
 ul {
@@ -95,6 +101,11 @@ ul li {
   cursor: pointer;
 }
 
+.coin-list {
+  width: 100%;
+  padding: 0;
+}
+
 .coin-list::-webkit-scrollbar {
   width: 10px;
 }
@@ -108,4 +119,18 @@ ul li {
   background: #fff;
   border: 2px solid #333;
   border-radius: 10px;
+}
+
+.heart-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.heart-icon:hover {
+  background: url("../img/heart-fill-icon.svg");
+  background-repeat: no-repeat;
+  background-position: left;
 }

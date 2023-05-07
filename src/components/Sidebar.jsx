@@ -6,6 +6,8 @@ import coinIcon from "../img/coin-icon.svg";
 import statsIcon from "../img/stats-icon.svg";
 import favoriteIcon from "../img/favorite-icon.svg";
 import backIcon from "../img/back-icon.svg";
+import heartIcon from "../img/heart-icon.svg";
+
 import "../styles/Sidebar.css";
 
 const Sidebar = () => {
@@ -102,12 +104,17 @@ const Sidebar = () => {
                 <ul className='coin-list'>
                   {asset.data.map((item) => (
                     <li
-                      className='sidebar-item'
+                      className='sidebar-item sidebar-item-fav'
                       value={item.id}
                       key={item.id}
                       onClick={() => handleCoin(item.id)}
                     >
                       {item.name}
+                      <img
+                        src={`${heartIcon}`}
+                        alt='heart'
+                        className='heart-icon'
+                      />
                     </li>
                   ))}
                 </ul>
@@ -115,12 +122,17 @@ const Sidebar = () => {
                 <ul className='coin-list'>
                   {filteredData.map((item) => (
                     <li
-                      className='sidebar-item'
+                      className='sidebar-item sidebar-item-fav'
                       value={item.id}
                       key={item.id}
                       onClick={() => handleCoin(item.id)}
                     >
                       {item.name}
+                      <img
+                        src={`${heartIcon}`}
+                        alt='heart'
+                        className='heart-icon'
+                      />
                     </li>
                   ))}
                 </ul>

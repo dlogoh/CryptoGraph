@@ -24,10 +24,10 @@ const Navbar = () => {
 
   return (
     <nav>
-      <div className='nav-container'>
+      <a href='/' className='nav-container'>
         <img src={logo} alt='Code Card Logo' />
         <h2>CryptoGraph</h2>
-      </div>
+      </a>
       <ul className='nav-links'>
         <li>
           <a href='/'>Maybe put icons here</a>
