@@ -123,7 +123,7 @@ ul li {
 
 .heart-icon {
   width: 40px;
-  height: 40px;
+  height: 24px;
   margin-right: 1rem;
   cursor: pointer;
   z-index: 10;
@@ -133,4 +133,9 @@ ul li {
   background: url("../img/heart-fill-icon.svg");
   background-repeat: no-repeat;
   background-position: left;
+}
+
+.no-favorites {
+  margin-top: 2rem;
+  padding-left: 2rem;
 }

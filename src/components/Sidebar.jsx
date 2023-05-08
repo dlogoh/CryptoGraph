@@ -1,12 +1,23 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setCoin, setAssets } from "../features/coinSlice";
-import { setOpen, setStats } from "../features/SidebarSlice";
+import {
+  setCoin,
+  setAssets,
+  addFavorite,
+  removeFavorite,
+} from "../features/coinSlice";
+import {
+  setOpen,
+  setStats,
+  openFavorites,
+  closeFavorites,
+} from "../features/SidebarSlice";
 import coinIcon from "../img/coin-icon.svg";
 import statsIcon from "../img/stats-icon.svg";
 import favoriteIcon from "../img/favorite-icon.svg";
 import backIcon from "../img/back-icon.svg";
 import heartIcon from "../img/heart-icon.svg";
+import heartFill from "../img/heart-fill-icon.svg";
 
 import "../styles/Sidebar.css";
 
@@ -28,6 +39,8 @@ const Sidebar = () => {
 
   // Redux
   const open = useSelector((state) => state.sidebar.open);
+  const favorites = useSelector((state) => state.coin.favorites);
+  const favoritesOpen = useSelector((state) => state.sidebar.favoritesOpen);
 
   const dispatch = useDispatch();
 
@@ -37,6 +50,14 @@ const Sidebar = () => {
 
   const toggleStats = (toggle) => {
     dispatch(setStats(toggle));
+  };
+
+  const openFavs = () => {
+    dispatch(openFavorites());
+  };
+
+  const closeFavs = () => {
+    dispatch(closeFavorites());
   };
 
   const handleCoin = (coin) => {
@@ -53,6 +74,14 @@ const Sidebar = () => {
     setFilteredData(filtered);
   };
 
+  const toggleFavorite = (coin) => {
+    if (favorites.includes(coin)) {
+      dispatch(removeFavorite(coin));
+    } else {
+      dispatch(addFavorite(coin));
+    }
+  };
+
   const handleSubmit = (e) => {
     // useless for now
     e.preventDefault();
@@ -63,7 +92,7 @@ const Sidebar = () => {
     <>
       <div className='sidebar'>
         <div className='sidebar-container'>
-          {!open ? (
+          {!open && (
             <ul>
               <li
                 className='sidebar-item'
@@ -79,12 +108,57 @@ const Sidebar = () => {
                 <img src={statsIcon} alt='Stats Icon' />
                 Stats
               </li>
-              <li className='sidebar-item'>
+              <li
+                className='sidebar-item'
+                onClick={() => {
+                  openFavs();
+                  toggleSidebar(true);
+                }}
+              >
                 <img src={favoriteIcon} alt='Favorites' />
                 Favorites
               </li>
             </ul>
-          ) : (
+          )}{" "}
+          {favoritesOpen === true && (
+            <div className='coin-menu'>
+              <img
+                src={`${backIcon}`}
+                alt='Go Back'
+                onClick={() => {
+                  closeFavs();
+                  toggleSidebar(false);
+                }}
+              />
+              {favorites.length === 0 ? (
+                <p className='no-favorites'>No favorites yet</p>
+              ) : (
+                <ul className='coin-list'>
+                  {favorites.map((item) => (
+                    <li
+                      className='sidebar-item sidebar-item-fav'
+                      value={item}
+                      key={item}
+                      onClick={() => handleCoin(item)}
+                    >
+                      {item}
+                      <img
+                        src={
+                          item === favorites.find((fav) => fav === item)
+                            ? `${heartFill}`
+                            : `${heartIcon}`
+                        }
+                        alt='heart'
+                        className='heart-icon'
+                        onClick={() => toggleFavorite(item)}
+                      />
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          )}{" "}
+          {open && (
             <div className='coin-menu'>
               <img
                 src={backIcon}
@@ -111,9 +185,14 @@ const Sidebar = () => {
                     >
                       {item.name}
                       <img
-                        src={`${heartIcon}`}
+                        src={
+                          item.id === favorites.find((fav) => fav === item.id)
+                            ? `${heartFill}`
+                            : `${heartIcon}`
+                        }
                         alt='heart'
                         className='heart-icon'
+                        onClick={() => toggleFavorite(item.id)}
                       />
                     </li>
                   ))}
@@ -129,9 +208,14 @@ const Sidebar = () => {
                     >
                       {item.name}
                       <img
-                        src={`${heartIcon}`}
+                        src={
+                          item.id === favorites.find((fav) => fav === item.id)
+                            ? `${heartFill}`
+                            : `${heartIcon}`
+                        }
                         alt='heart'
                         className='heart-icon'
+                        onClick={() => toggleFavorite(item.id)}
                       />
                     </li>
                   ))}
