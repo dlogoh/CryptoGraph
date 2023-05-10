@@ -139,3 +139,9 @@ ul li {
   margin-top: 2rem;
   padding-left: 2rem;
 }
+
+@media (max-width: 825px) {
+  .sidebar {
+    display: none;
+  }
+}

@@ -3,6 +3,8 @@ import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { useSelector } from "react-redux";
 
+import "../styles/LineGraph.css";
+
 function LineGraph() {
   const chartRef = useRef(null);
 
@@ -98,7 +100,7 @@ function LineGraph() {
   return (
     <div>
       {/* Add height later for responsiveness */}
-      <canvas id='myChart'></canvas>
+      <canvas id='myChart' className='my-canvas'></canvas>
     </div>
   );
 }

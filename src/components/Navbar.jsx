@@ -1,25 +1,34 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setOpen } from "../features/SidebarSlice";
 
 import logo from "../img/logo.png";
 import "../styles/Navbar.css";
 
 const Navbar = () => {
-  const [open, setOpen] = useState("closed");
+  const [open, setOpenNav] = useState("closed");
   const [navToggle, setNavToggle] = useState("no-toggle");
 
+  // Redux
+  const dispatch = useDispatch();
+
   const handleClick = (e) => {
-    setOpen("closed");
+    setOpenNav("closed");
     setNavToggle("no-toggle");
   };
 
   const eatHamburger = () => {
     if (open === "open") {
-      setOpen("closed");
+      setOpenNav("closed");
       setNavToggle("no-toggle");
     } else {
-      setOpen("open");
+      setOpenNav("open");
       setNavToggle("nav-toggle");
     }
+  };
+
+  const toggleSidebar = (toggle) => {
+    dispatch(setOpen(toggle));
   };
 
   return (
@@ -29,29 +38,22 @@ const Navbar = () => {
         <h2>CryptoGraph</h2>
       </a>
       <ul className='nav-links'>
-        <li>
-          <a href='/'>Maybe put icons here</a>
-        </li>
+        <li></li>
       </ul>
       <ul id='menu' className={`menu ${navToggle}`}>
         <li>
-          <a to='/' className='menu-link' onClick={handleClick}>
-            Home
+          <a to='/' className='menu-link' onClick={toggleSidebar()}>
+            Coins
           </a>
         </li>
         <li>
           <a to='/' className='menu-link' onClick={handleClick}>
-            Sign Up
+            Stats
           </a>
         </li>
         <li>
           <a to='/' className='menu-link' onClick={handleClick}>
-            Log In
-          </a>
-        </li>
-        <li>
-          <a to='/' className='menu-link' onClick={handleClick}>
-            Contact
+            Favorites
           </a>
         </li>
       </ul>

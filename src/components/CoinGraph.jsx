@@ -110,14 +110,14 @@ const CoinGraph = () => {
         <div className='coin-stats'>
           <div className='stats-header'>
             <div className='stats-rank'>
-              <h3>Rank</h3>
+              <h3 className='sm-screen'>Rank</h3>
               <h3>Name</h3>
             </div>
             <div className='stats-info'>
               <h3>Price</h3>
-              <h3>Market Cap</h3>
-              <h3>Volume</h3>
-              <h3>Supply</h3>
+              <h3 className='lg-screen'>Market Cap</h3>
+              <h3 className='lg-screen'>Volume</h3>
+              <h3 className='lg-screen'>Supply</h3>
               <h3>Change (24hr)</h3>
             </div>
           </div>
@@ -141,9 +141,13 @@ const CoinGraph = () => {
                     {asset.priceUsd < 1 &&
                       formatCurrency(parseFloat(asset.priceUsd), false)}
                   </h3>
-                  <h3>{formatNumber(asset.marketCapUsd)}</h3>
-                  <h3>{formatNumber(asset.volumeUsd24Hr)}</h3>
-                  <h3>{formatNumber(asset.supply)}</h3>
+                  <h3 className='lg-screen'>
+                    {formatNumber(asset.marketCapUsd)}
+                  </h3>
+                  <h3 className='lg-screen'>
+                    {formatNumber(asset.volumeUsd24Hr)}
+                  </h3>
+                  <h3 className='lg-screen'>{formatNumber(asset.supply)}</h3>
                   <h3>{formatPercent(asset.changePercent24Hr)}</h3>
                 </div>
               </div>

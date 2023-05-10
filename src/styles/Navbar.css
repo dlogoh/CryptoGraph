@@ -103,6 +103,8 @@ nav h2 {
 
 .nav-toggle {
   background-color: var(--clr-dark);
+  margin-top: 20rem;
+  padding: 0;
   height: 328px !important;
 }
 

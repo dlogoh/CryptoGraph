@@ -1,0 +1,5 @@
+@media (max-width: 825px) {
+  .my-canvas {
+    height: 300px !important;
+  }
+}
