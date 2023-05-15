@@ -99,7 +99,6 @@ function LineGraph() {
 
   return (
     <div>
-      {/* Add height later for responsiveness */}
       <canvas id='myChart' className='my-canvas'></canvas>
     </div>
   );

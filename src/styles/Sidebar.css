@@ -140,8 +140,17 @@ ul li {
   padding-left: 2rem;
 }
 
+.open-sidebar {
+  display: inherit;
+}
+
 @media (max-width: 825px) {
   .sidebar {
     display: none;
+  }
+
+  .open-sidebar {
+    display: flex !important;
+    z-index: 10;
   }
 }

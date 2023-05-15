@@ -41,6 +41,7 @@ const Sidebar = () => {
   const open = useSelector((state) => state.sidebar.open);
   const favorites = useSelector((state) => state.coin.favorites);
   const favoritesOpen = useSelector((state) => state.sidebar.favoritesOpen);
+  const openSidebar = useSelector((state) => state.sidebar.sidebarClass);
 
   const dispatch = useDispatch();
 
@@ -90,7 +91,7 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className='sidebar'>
+      <div className={`sidebar ${openSidebar}`}>
         <div className='sidebar-container'>
           {!open && (
             <ul>

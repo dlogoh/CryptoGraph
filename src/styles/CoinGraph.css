@@ -162,4 +162,12 @@
   .yLabel {
     display: none;
   }
+
+  .sm-screen {
+    display: none;
+  }
+
+  .stats-rank-asset {
+    padding-left: 6px;
+  }
 }

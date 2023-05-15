@@ -1,6 +1,11 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { setOpen } from "../features/SidebarSlice";
+import {
+  setOpen,
+  setStats,
+  openFavorites,
+  closeFavorites,
+} from "../features/SidebarSlice";
 
 import logo from "../img/logo.png";
 import "../styles/Navbar.css";
@@ -27,8 +32,17 @@ const Navbar = () => {
     }
   };
 
-  const toggleSidebar = (toggle) => {
-    dispatch(setOpen(toggle));
+  const handleCoins = () => {
+    dispatch(setOpen(true));
+  };
+
+  const handleStats = () => {
+    dispatch(setStats(true));
+  };
+
+  const handleFavorites = () => {
+    dispatch(setOpen(true));
+    dispatch(openFavorites(true));
   };
 
   return (
@@ -42,17 +56,38 @@ const Navbar = () => {
       </ul>
       <ul id='menu' className={`menu ${navToggle}`}>
         <li>
-          <a to='/' className='menu-link' onClick={toggleSidebar()}>
+          <a
+            to='/'
+            className='menu-link'
+            onClick={() => {
+              handleClick();
+              handleCoins();
+            }}
+          >
             Coins
           </a>
         </li>
         <li>
-          <a to='/' className='menu-link' onClick={handleClick}>
+          <a
+            to='/'
+            className='menu-link'
+            onClick={() => {
+              handleClick();
+              handleStats();
+            }}
+          >
             Stats
           </a>
         </li>
         <li>
-          <a to='/' className='menu-link' onClick={handleClick}>
+          <a
+            to='/'
+            className='menu-link'
+            onClick={() => {
+              handleClick();
+              handleFavorites();
+            }}
+          >
             Favorites
           </a>
         </li>

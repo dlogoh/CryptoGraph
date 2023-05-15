@@ -118,7 +118,7 @@ const CoinGraph = () => {
               <h3 className='lg-screen'>Market Cap</h3>
               <h3 className='lg-screen'>Volume</h3>
               <h3 className='lg-screen'>Supply</h3>
-              <h3>Change (24hr)</h3>
+              <h3 className='sm-screen'>Change (24hr)</h3>
             </div>
           </div>
           <div className='stats-list'>
@@ -148,7 +148,9 @@ const CoinGraph = () => {
                     {formatNumber(asset.volumeUsd24Hr)}
                   </h3>
                   <h3 className='lg-screen'>{formatNumber(asset.supply)}</h3>
-                  <h3>{formatPercent(asset.changePercent24Hr)}</h3>
+                  <h3 className='sm-screen'>
+                    {formatPercent(asset.changePercent24Hr)}
+                  </h3>
                 </div>
               </div>
             ))}

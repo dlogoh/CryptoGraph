@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   stats: false,
   open: false,
+  sidebarClass: "open-sidebar",
   favoritesOpen: false,
 };
 
@@ -12,6 +13,11 @@ export const SidebarSlice = createSlice({
   reducers: {
     setOpen: (state, action) => {
       state.open = action.payload;
+      if (action.payload) {
+        state.sidebarClass = "open-sidebar";
+      } else {
+        state.sidebarClass = "close-sidebar";
+      }
     },
     setStats: (state, action) => {
       state.stats = action.payload;
