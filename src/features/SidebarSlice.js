@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   stats: false,
   open: false,
-  sidebarClass: "open-sidebar",
+  sidebarClass: "close-sidebar",
   favoritesOpen: false,
 };
 

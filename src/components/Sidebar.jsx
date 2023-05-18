@@ -120,46 +120,50 @@ const Sidebar = () => {
                 Favorites
               </li>
             </ul>
-          )}{" "}
-          {favoritesOpen === true && (
+          )}
+          {favoritesOpen && (
             <div className='coin-menu'>
-              <img
-                src={`${backIcon}`}
-                alt='Go Back'
-                onClick={() => {
-                  closeFavs();
-                  toggleSidebar(false);
-                }}
-              />
-              {favorites.length === 0 ? (
-                <p className='no-favorites'>No favorites yet</p>
+              {(favorites.length === 0) & favoritesOpen ? (
+                <>
+                  <img
+                    src={`${backIcon}`}
+                    alt='Go Back'
+                    onClick={() => {
+                      closeFavs();
+                      toggleSidebar(false);
+                    }}
+                  />
+                  <p className='no-favorites'>No favorites yet</p>
+                </>
               ) : (
-                <ul className='coin-list'>
-                  {favorites.map((item) => (
-                    <li
-                      className='sidebar-item sidebar-item-fav'
-                      value={item}
-                      key={item}
-                      onClick={() => handleCoin(item)}
-                    >
-                      {item}
-                      <img
-                        src={
-                          item === favorites.find((fav) => fav === item)
-                            ? `${heartFill}`
-                            : `${heartIcon}`
-                        }
-                        alt='heart'
-                        className='heart-icon'
-                        onClick={() => toggleFavorite(item)}
-                      />
-                    </li>
-                  ))}
-                </ul>
+                <div className='side-container'>
+                  <ul className='coin-list'>
+                    {favorites.map((item) => (
+                      <li
+                        className='sidebar-item sidebar-item-fav'
+                        value={item}
+                        key={item}
+                        onClick={() => handleCoin(item)}
+                      >
+                        {item}
+                        <img
+                          src={
+                            item === favorites.find((fav) => fav === item)
+                              ? `${heartFill}`
+                              : `${heartIcon}`
+                          }
+                          alt='heart'
+                          className='heart-icon'
+                          onClick={() => toggleFavorite(item)}
+                        />
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
             </div>
           )}{" "}
-          {open && (
+          {open && !favoritesOpen && (
             <div className='coin-menu'>
               <img
                 src={backIcon}

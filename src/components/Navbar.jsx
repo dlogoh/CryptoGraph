@@ -36,13 +36,13 @@ const Navbar = () => {
     dispatch(setOpen(true));
   };
 
-  const handleStats = () => {
-    dispatch(setStats(true));
+  const handleStats = (toggle) => {
+    dispatch(setStats(toggle));
   };
 
-  const handleFavorites = () => {
-    dispatch(setOpen(true));
-    dispatch(openFavorites(true));
+  const handleFavorites = (toggle) => {
+    dispatch(openFavorites(toggle));
+    dispatch(setOpen(toggle));
   };
 
   return (
@@ -62,6 +62,7 @@ const Navbar = () => {
             onClick={() => {
               handleClick();
               handleCoins();
+              handleStats(false);
             }}
           >
             Coins
@@ -73,7 +74,7 @@ const Navbar = () => {
             className='menu-link'
             onClick={() => {
               handleClick();
-              handleStats();
+              handleStats(true);
             }}
           >
             Stats
@@ -85,7 +86,7 @@ const Navbar = () => {
             className='menu-link'
             onClick={() => {
               handleClick();
-              handleFavorites();
+              handleFavorites(true);
             }}
           >
             Favorites
