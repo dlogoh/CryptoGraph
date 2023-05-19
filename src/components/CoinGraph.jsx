@@ -6,6 +6,11 @@ import upIcon from "../img/down-g-icon.svg";
 
 import "../styles/CoinGraph.css";
 
+export function formatPercent(number) {
+  const roundedNumber = Number(number).toFixed(2);
+  return `${roundedNumber}%`;
+}
+
 const CoinGraph = () => {
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -71,10 +76,10 @@ const CoinGraph = () => {
     }
   }
 
-  function formatPercent(number) {
-    const roundedNumber = Number(number).toFixed(2);
-    return `${roundedNumber}%`;
-  }
+  // function formatPercent(number) {
+  //   const roundedNumber = Number(number).toFixed(2);
+  //   return `${roundedNumber}%`;
+  // }
 
   return (
     <>

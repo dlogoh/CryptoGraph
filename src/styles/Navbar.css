@@ -139,7 +139,7 @@ nav h2 {
   text-decoration: none;
 }
 
-@media (max-width: 750px) {
+@media (max-width: 825px) {
   .nav-links {
     display: none;
   }
