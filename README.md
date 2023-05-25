@@ -13,7 +13,7 @@ CryptoGraph is a web application built using Vite that allows users to visualize
 1. Clone the repository:
 
    ```shell
-   git clone https://github.com/your-username/CryptoGraph.git
+   git clone https://github.com/dlogoh/CryptoGraph.git
 
    ```
 
