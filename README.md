@@ -57,3 +57,4 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 - [Chart.js](https://www.chartjs.org/)
 - [CoinCap API](https://docs.coincap.io/)
 - [ReactJS](https://reactjs.org/)
+- [ReduxToolkit](https://redux-toolkit.js.org/)
